@@ -1,0 +1,22 @@
+#container{
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  /* background-color: red; */
+  margin: 0 auto;
+  
+}
+
+#wrapper> ul{
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Lato';
+  font-size: min(1.4rem, 5vw);
+  font-weight: 600;
+}
+#wrapper> ul>li{
+  display: flex;
+ 
+}
