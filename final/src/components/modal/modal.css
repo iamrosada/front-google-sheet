@@ -1,0 +1,124 @@
+.modal {
+ 
+  position: fixed; /* Stay in place */
+  z-index: 220; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  margin: auto;
+  position: relative;
+    width: 100%;
+    max-width: 768px;
+    max-height: 90vh;
+    padding: 33px;
+    background: rgb(32, 32, 36);
+    box-shadow: rgb(0 0 0 / 56%) 0px 5px 30px;
+    /* opacity: 0; */
+    border-radius: 5px;
+    transform: translateY(20px);
+    transition: transform 0.2s ease-in 0s, opacity 0.2s ease-in 0s;
+    overflow-y: auto;
+    text-align: left;
+    cursor: default;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container-form{
+  display: flex;
+  flex-direction: column;
+  /* max-width: 700px; */
+  /* background-color: yellow; */
+  /* margin: 0 auto; */
+  font-family: 'Lato';
+  padding: 10px;
+}
+.wrappe-form{
+
+}
+.name-class-container,.year-start-and-container,.year-and-country{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.input-form{
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: column;
+  margin-bottom: 22px;
+  color: rgb(255, 255, 255);
+}
+.input-form>label{
+  display: block;
+  width: 100%;
+  min-height: 1.6rem;
+  font-size: 1.2rem;
+  color: rgb(135, 134, 139);
+  margin-bottom: 8px;
+}
+.input-form>input{
+  /* width: 100%; */
+  width: 330px;
+  max-width: 800px;
+  height: 50px;
+  font-size: 16px;
+  background: rgb(18, 18, 20);
+  border-color: rgb(18, 18, 20);
+  color: rgb(255, 255, 255);
+  padding: 0px 1em;
+  border-radius: 5px; 
+  
+}
+
+.save-edit{
+
+    padding: 16px 32px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(113, 89, 193);
+    border-radius: 5px;
+    transition: background 0.2s ease 0s, border 0.2s ease 0s;
+    cursor: pointer;
+    background: rgb(113, 89, 193);
+}
+
+.container-button-save{
+ /* position: absolute;
+ right: 45px;
+ bottom: 10px; */
+ display: flex;
+ flex-direction: inherit;
+}
+
+#student-data{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1.33em;
+  color:#fff
+}
