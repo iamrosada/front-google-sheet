@@ -1,0 +1,31 @@
+
+table {
+  margin-top: 10px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: 'Lato';
+  font-size: min(1.4rem, 5vw);
+  margin-bottom: 30px;
+
+  
+}
+table:nth-child(even) {
+  background-color: #dddddd;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+ 
+}
+.delete{
+  background-color:rgb(207, 92, 92);
+  color:#fff;
+  cursor: pointer;
+}
+.edit{
+  background-color:rgb(60, 60, 204);
+  color:#fff;
+  cursor: pointer;
+}
