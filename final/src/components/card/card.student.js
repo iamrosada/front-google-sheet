@@ -54,9 +54,14 @@ function useOnClickOutside(ref, handler) {
     };
   }, [ref, handler]);
 }
+// const response = await fetch("https://sheetdb.io/api/v1/tqgx5o7phzhvv", {
+//   method: "GET",
+//   headers: { "Content-Type": "application/json; charset=utf-8" },
+//   // body: JSON.stringify(personalData)
+// });
 
 export const Card = () => {
-  const [data, setData] = useState(studentList);
+  // const [data, setData] = useState(studentList);
 
   const [allstudent, setAllStudent] = useState(studentList);
   const [filteredStudenty, setFilteredStudenty] = useState([]);
@@ -73,9 +78,17 @@ export const Card = () => {
     setDeleteStudent(deleter);
   };
 
-  const handleModalEdit = useCallback((t) => {
-    console.log("clo");
-
+  const handleModalEdit = useCallback((email) => {
+    fetch(`https://sheetdb.io/api/v1/tqgx5o7phzhvv/Email/${email}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify(EditStudent),
+    })
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => console.log(data));
+    console.log("email-q", email);
     setIsOpen(true);
   }, []);
 
@@ -90,7 +103,16 @@ export const Card = () => {
     },
     [EditStudent]
   );
-
+  // useEffect(() => {
+  async function fetchData() {
+    // You can await here
+    // const response = await fetch("https://sheetdb.io/api/v1/tqgx5o7phzhvv");
+    // let result = await response.json();
+    // console.log(result);
+    // setAllStudent(result);
+  }
+  fetchData();
+  // });
   useEffect(() => {
     setFilteredStudenty(
       allstudent.filter(
