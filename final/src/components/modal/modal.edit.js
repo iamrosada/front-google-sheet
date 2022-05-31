@@ -16,7 +16,7 @@ export const ModalEdit = ({ isOpen, refForClose, EditStudent, isId }) => {
   );
 };
 
-const FormToEdit = ({ EditStudent }) => {
+const FormToEdit = ({ EditStudent, isId }) => {
   const [input, setInput] = useState(EditStudent);
 
   const [nameOfStudent, setNameOfStudent] = useState(
@@ -84,19 +84,19 @@ const FormToEdit = ({ EditStudent }) => {
         email: emailOfStudent,
       },
     };
-    // fetch(
-    //   `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${id}`,
-    //   {
-    //     method: "PATCH",
-    //     headers: { "Content-Type": "application/json; charset=utf-8" },
-    //     body: JSON.stringify(data),
-    //   }
-    // )
-    //   .then((response) => {
-    //     response.json();
-    //   })
-    //   .then((data) => console.log("is IDDD", data));
-    // console.log("update", data);
+    fetch(
+      `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${isId}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => console.log("is IDDD", data.sheet1));
+    console.log("update", data);
   };
   return (
     <section className="container-form">
