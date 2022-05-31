@@ -62,19 +62,6 @@ function useOnClickOutside(ref, handler) {
 
 export const Card = () => {
   const [allstudent, setAllStudent] = useState([]);
-  // const response = await fetch(
-  //   "https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1",
-  //   {
-  //     method: "GET",
-  //     // headers: { "Content-Type": "application/json; charset=utf-8" },
-  //   }
-  // )
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log("eee", data);
-  //     setAllStudent(data);
-  //   });
-  // console.log("fff", allstudent.sheet1);
 
   const [filteredStudenty, setFilteredStudenty] = useState([]);
 
@@ -118,7 +105,7 @@ export const Card = () => {
         "https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1",
         {
           method: "GET",
-          //   // headers: { "Content-Type": "application/json; charset=utf-8" },
+          headers: { "Content-Type": "application/json; charset=utf-8" },
         }
       );
       let result = await response.json();
@@ -128,7 +115,7 @@ export const Card = () => {
 
     fetchData();
   }, []);
-  console.log("id", getId);
+  console.log("id", search);
   useEffect(() => {
     setFilteredStudenty(
       allstudent.filter(
