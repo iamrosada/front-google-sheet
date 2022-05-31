@@ -84,7 +84,18 @@ const FormToEdit = ({ EditStudent }) => {
         email: emailOfStudent,
       },
     };
-
+    fetch(
+      `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => console.log("is IDDD", data));
     console.log("update", data);
   };
   return (
