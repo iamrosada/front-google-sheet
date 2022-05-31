@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./modal.css";
 
-export const ModalEdit = ({ isOpen, refForClose, EditStudent }) => {
+export const ModalEdit = ({ isOpen, refForClose, EditStudent, isId }) => {
   console.log("refForClose", refForClose);
   return (
     <div
@@ -10,7 +10,7 @@ export const ModalEdit = ({ isOpen, refForClose, EditStudent }) => {
       style={isOpen ? { display: "block" } : { display: "none" }}
     >
       <div className="modal-content" ref={refForClose}>
-        <FormToEdit EditStudent={EditStudent} />
+        <FormToEdit EditStudent={EditStudent} isId={isId} />
       </div>
     </div>
   );
@@ -84,19 +84,19 @@ const FormToEdit = ({ EditStudent }) => {
         email: emailOfStudent,
       },
     };
-    fetch(
-      `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${id}`,
-      {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => console.log("is IDDD", data));
-    console.log("update", data);
+    // fetch(
+    //   `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${id}`,
+    //   {
+    //     method: "PATCH",
+    //     headers: { "Content-Type": "application/json; charset=utf-8" },
+    //     body: JSON.stringify(data),
+    //   }
+    // )
+    //   .then((response) => {
+    //     response.json();
+    //   })
+    //   .then((data) => console.log("is IDDD", data));
+    // console.log("update", data);
   };
   return (
     <section className="container-form">
