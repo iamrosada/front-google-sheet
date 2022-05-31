@@ -61,9 +61,21 @@ function useOnClickOutside(ref, handler) {
 // });
 
 export const Card = () => {
-  // const [data, setData] = useState(studentList);
+  const [allstudent, setAllStudent] = useState([]);
+  // const response = await fetch(
+  //   "https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1",
+  //   {
+  //     method: "GET",
+  //     // headers: { "Content-Type": "application/json; charset=utf-8" },
+  //   }
+  // )
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log("eee", data);
+  //     setAllStudent(data);
+  //   });
+  // console.log("fff", allstudent.sheet1);
 
-  const [allstudent, setAllStudent] = useState(studentList);
   const [filteredStudenty, setFilteredStudenty] = useState([]);
 
   const [search, setSearch] = useContext(UserContext);
@@ -72,25 +84,42 @@ export const Card = () => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
 
-  const handleRemoveItem = (email) => {
-    console.log(email);
-    const deleter = deleteStudent.filter((item) => item.Email !== email);
-    setDeleteStudent(deleter);
-  };
-
-  const handleModalEdit = useCallback((email) => {
-    fetch(`https://sheetdb.io/api/v1/tqgx5o7phzhvv/Email/${email}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json; charset=utf-8" },
-      body: JSON.stringify(EditStudent),
-    })
+  const handleRemoveItem = useCallback((id) => {
+    fetch(
+      `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${id}`,
+      {
+        method: "DELETE",
+        // headers: { "Content-Type": "application/json; charset=utf-8" },
+        // body: JSON.stringify(deleteStudent),
+      }
+    )
       .then((response) => {
         response.json();
       })
-      .then((data) => console.log(data));
-    console.log("email-q", email);
-    setIsOpen(true);
+      .then(() => {
+        console.log("object deleted");
+      });
   }, []);
+
+  const handleModalEdit = useCallback(
+    (email) => {
+      fetch(
+        "https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1",
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json; charset=utf-8" },
+          body: JSON.stringify(EditStudent),
+        }
+      )
+        .then((response) => {
+          response.json();
+        })
+        .then((data) => console.log(data));
+      console.log("email-q", email);
+      setIsOpen(true);
+    },
+    [EditStudent]
+  );
 
   const handleEdit = useCallback(
     (email) => {
@@ -103,35 +132,44 @@ export const Card = () => {
     },
     [EditStudent]
   );
-  // useEffect(() => {
-  async function fetchData() {
-    // You can await here
-    // const response = await fetch("https://sheetdb.io/api/v1/tqgx5o7phzhvv");
-    // let result = await response.json();
-    // console.log(result);
-    // setAllStudent(result);
-  }
-  fetchData();
-  // });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        "https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1",
+        {
+          method: "GET",
+          //   // headers: { "Content-Type": "application/json; charset=utf-8" },
+        }
+      );
+      let result = await response.json();
+      console.log("vida", result.sheet1);
+      setAllStudent(result.sheet1);
+    };
+
+    fetchData();
+  }, []);
+  console.log("vvv", allstudent);
   useEffect(() => {
     setFilteredStudenty(
       allstudent.filter(
         (student) =>
-          student.Class.toLowerCase().includes(search.toLowerCase()) ||
-          student.Country.toLowerCase().includes(search.toLowerCase()) ||
-          student.Name.toLowerCase().includes(search.toLowerCase()) ||
-          student.Email.toLowerCase().includes(search.toLowerCase()) ||
-          student.Year_graduated.toLowerCase().includes(search.toLowerCase()) ||
-          student.Year_start.toLowerCase().includes(search.toLowerCase())
+          student.class.toLowerCase().includes(search.toLowerCase()) ||
+          student.country.toLowerCase().includes(search.toLowerCase()) ||
+          student.name.toLowerCase().includes(search.toLowerCase()) ||
+          student.email.toLowerCase().includes(search.toLowerCase()) ||
+          student.yearGraduated.toLowerCase().includes(search.toLowerCase()) ||
+          student.yearStart.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search, allstudent]);
+  console.log("god", filteredStudenty.sheet1);
   useOnClickOutside(ref, () => setIsOpen(false));
   return (
     <>
       {filteredStudenty.map((item) => {
         return (
-          <table id="all-student" key={item.Email}>
+          <table id="all-student" key={item.id}>
             <tr>
               <th> Name</th>
               <th>Class</th>
@@ -139,11 +177,12 @@ export const Card = () => {
               <th> Year graduated </th>
               <th> Country</th>
               <th> Email</th>
+
               <th
                 className="edit"
                 onClick={() => {
-                  handleModalEdit(item.Email);
-                  handleEdit(item.Email);
+                  handleModalEdit(item.id);
+                  handleEdit(item.id);
                 }}
               >
                 Edit
@@ -151,16 +190,14 @@ export const Card = () => {
             </tr>
 
             <tr className="card-info">
-              <td>{item.Name}</td>
-              <td>{item.Class}</td>
-              <td>{item.Year_start}</td>
-              <td>{item.Year_graduated}</td>
-              <td>{item.Country}</td>
-              <td>{item.Email}</td>
-              <td
-                className="delete"
-                onClick={() => handleRemoveItem(item.Email)}
-              >
+              <td>{item.name}</td>
+              <td>{item.class}</td>
+              <td>{item.yearStart}</td>
+              <td>{item.yearGraduated}</td>
+              <td>{item.country}</td>
+              <td>{item.email}</td>
+
+              <td className="delete" onClick={() => handleRemoveItem(item.id)}>
                 Delete
               </td>
             </tr>
