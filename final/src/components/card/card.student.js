@@ -79,8 +79,8 @@ export const Card = () => {
   const [filteredStudenty, setFilteredStudenty] = useState([]);
 
   const [search, setSearch] = useContext(UserContext);
-  const [deleteStudent, setDeleteStudent] = useState(studentList);
-  const [EditStudent, setEditStudent] = useState(studentList);
+  const [getId, setGetId] = useState(Number);
+  const [EditStudent, setEditStudent] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
 
@@ -100,37 +100,16 @@ export const Card = () => {
         console.log("object deleted");
       });
   }, []);
-
+  console.log(EditStudent, "EditStudent----");
   const handleModalEdit = useCallback(
-    (email) => {
-      fetch(
-        "https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1",
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json; charset=utf-8" },
-          body: JSON.stringify(EditStudent),
-        }
-      )
-        .then((response) => {
-          response.json();
-        })
-        .then((data) => console.log(data));
-      console.log("email-q", email);
+    (id) => {
+      const editDataStudent = allstudent.filter((item) => item.id === id);
+      setEditStudent(editDataStudent);
+      console.log("viagemmmm", editDataStudent);
+
       setIsOpen(true);
     },
-    [EditStudent]
-  );
-
-  const handleEdit = useCallback(
-    (email) => {
-      console.log("email", email);
-      const editDataStudent = EditStudent.filter(
-        (item) => item.Email === email
-      );
-      setEditStudent(editDataStudent);
-      console.log(editDataStudent, "editDataStudent");
-    },
-    [EditStudent]
+    [EditStudent, allstudent]
   );
 
   useEffect(() => {
@@ -149,7 +128,7 @@ export const Card = () => {
 
     fetchData();
   }, []);
-  console.log("vvv", allstudent);
+  console.log("id", getId);
   useEffect(() => {
     setFilteredStudenty(
       allstudent.filter(
@@ -163,7 +142,7 @@ export const Card = () => {
       )
     );
   }, [search, allstudent]);
-  console.log("god", filteredStudenty.sheet1);
+  console.log("god", filteredStudenty);
   useOnClickOutside(ref, () => setIsOpen(false));
   return (
     <>
@@ -181,8 +160,9 @@ export const Card = () => {
               <th
                 className="edit"
                 onClick={() => {
+                  console.log("id cliclado", item.id);
                   handleModalEdit(item.id);
-                  handleEdit(item.id);
+                  setGetId(item.id);
                 }}
               >
                 Edit
@@ -209,6 +189,7 @@ export const Card = () => {
           isOpen={isOpen}
           refForClose={ref}
           EditStudent={EditStudent}
+          isId={getId}
         />
       ) : null}
     </>
