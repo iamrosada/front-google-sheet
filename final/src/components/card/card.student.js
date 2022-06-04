@@ -6,6 +6,7 @@ import {
   useCallback,
   useContext,
 } from "react";
+import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 import { UserContext } from "../../context/context.api";
 import { ModalEdit } from "../modal/modal.edit";
 import "./card.styles.css";
@@ -153,7 +154,7 @@ export const Card = () => {
                   setGetId(item.id);
                 }}
               >
-                Edit
+                <HiOutlinePencil />
               </th>
             </tr>
 
@@ -166,7 +167,7 @@ export const Card = () => {
               <td>{item.email}</td>
 
               <td className="delete" onClick={() => handleRemoveItem(item.id)}>
-                Delete
+                <HiOutlineTrash />
               </td>
             </tr>
           </table>
