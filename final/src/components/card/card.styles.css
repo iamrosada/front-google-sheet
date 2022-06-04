@@ -7,7 +7,7 @@ table {
   font-family: 'Lato';
   font-size: min(1.4rem, 5vw);
   margin-bottom: 30px;
-
+  box-shadow: 10px 10px 5px rgb(51, 39, 39);
   
 }
 table:nth-child(even) {
@@ -25,6 +25,11 @@ td, th {
   cursor: pointer;
   width: 100px ;
   justify-content: center;
+  /* border: 2px solid #000; */
+  border-radius: 4px;
+}
+.delete:hover{
+  background-color:rgb(170, 10, 10); 
 }
 .edit{
   /* background-color:rgb(60, 60, 204); */
@@ -34,9 +39,11 @@ td, th {
   display: flex;
   justify-content: center;
   background-color:#8257e5;
+  /* border: 2px solid #000; */
+  border-radius: 4px;
 
 }
 
 .edit:hover{
-  background-color:#8257e5;
+  background-color:#5024b7;
 }
