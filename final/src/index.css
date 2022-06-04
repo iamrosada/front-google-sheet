@@ -1,0 +1,11 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ body{
+   background: #fff;
+   /* background: rgb(95, 95, 183);
+   border-color: rgb(18, 18, 20); */
+   /* background: rgba(0, 0, 0, 0.55); */
+ }
