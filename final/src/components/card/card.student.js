@@ -121,11 +121,12 @@ export const Card = () => {
       allstudent.filter(
         (student) =>
           student.class.toLowerCase().includes(search.toLowerCase()) ||
+          student.yearStart.includes(search) ||
           student.country.toLowerCase().includes(search.toLowerCase()) ||
-          student.name.toLowerCase().includes(search.toLowerCase()) ||
-          student.email.toLowerCase().includes(search.toLowerCase()) ||
-          student.yearGraduated.toLowerCase().includes(search.toLowerCase()) ||
-          student.yearStart.toLowerCase().includes(search.toLowerCase())
+          student.name.toLowerCase().includes(search) ||
+          student.email.includes(search.toLowerCase()) ||
+          student.yearGraduated.includes(search)
+        // student.yearStart.includes(search)
       )
     );
   }, [search, allstudent]);
