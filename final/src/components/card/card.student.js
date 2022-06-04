@@ -12,28 +12,80 @@ import { ModalEdit } from "../modal/modal.edit";
 import "./card.styles.css";
 const studentList = [
   {
-    Name: "Luis Rosada",
-    Class: "y-196",
-    Year_start: "2018",
-    Year_graduated: "2023",
-    Country: "Angola",
-    Email: "Mario2gmail",
+    name: "Luis Rosada",
+    class: "y-196",
+    yearStart: "2018",
+    yearGraduated: "2023",
+    country: "Angola",
+    email: "Mario2gmail",
   },
   {
-    Name: "Filipe Barr",
-    Class: "y-196",
-    Year_start: "2010",
-    Year_graduated: "2023",
-    Country: "Angola",
-    Email: "luis@gmail.com",
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2010",
+    yearGraduated: "2023",
+    country: "Angola",
+    cmail: "luis@gmail.com",
   },
   {
-    Name: "Filipe Barr",
-    Class: "y-196",
-    Year_start: "2018",
-    Year_graduated: "2023",
-    Country: "Angola",
-    Email: "gildo@gmail.com",
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
+  },
+  {
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
+  },
+  {
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
+  },
+
+  {
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
+  },
+
+  {
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
+  },
+
+  {
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
+  },
+
+  {
+    name: "Filipe Barr",
+    class: "y-196",
+    yearStart: "2018",
+    yearGgraduated: "2023",
+    country: "Angola",
+    email: "gildo@gmail.com",
   },
 ];
 function useOnClickOutside(ref, handler) {
@@ -135,7 +187,7 @@ export const Card = () => {
   useOnClickOutside(ref, () => setIsOpen(false));
   return (
     <>
-      {filteredStudenty.map((item) => {
+      {studentList.map((item) => {
         return (
           <table id="all-student" key={item.id}>
             <tr>
