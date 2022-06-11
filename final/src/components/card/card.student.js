@@ -115,7 +115,8 @@ export const Card = () => {
         console.log("object deleted");
       });
   }, []);
-  console.log(EditStudent, "EditStudent----");
+  // console.log(EditStudent, "EditStudent----");
+
   const handleModalEdit = useCallback(
     (id) => {
       const editDataStudent = allstudent.filter((item) => item.id === id);

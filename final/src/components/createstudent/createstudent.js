@@ -72,7 +72,7 @@ const FormToEdit = () => {
 
   return (
     <section className="container-form">
-      <span id="student-data">Create Student Personal data Vsuet</span>
+      <span id="student-data">Create Student Personal data ВГУИТ</span>
       <div className="wrappe-form">
         <div className="name-class-container">
           <div className="input-form">
