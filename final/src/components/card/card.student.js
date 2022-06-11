@@ -20,34 +20,36 @@ const studentList = [
     email: "Mario2gmail",
   },
   {
-    name: "Filipe Barr",
+    name: "Filipe Bar.",
     class: "y-196",
-    yearStart: "2010",
+    yearStart: "2019",
+    yearGraduated: "2024",
+    country: "Angola",
+    email: "luis@gmail.com",
+  },
+  {
+    name: "Mitchelle Gito.",
+    class: "y-196",
+    yearStart: "2018",
+    yearGraduated: "2023",
+    country: "Kenya",
+    email: "gildo@gmail.com",
+  },
+
+  {
+    name: "Edson Kapen.",
+    class: "x-106",
+    yearStart: "2018",
     yearGraduated: "2023",
     country: "Angola",
-    cmail: "luis@gmail.com",
+    email: "kapen@gmail.com",
   },
+
   {
-    name: "Filipe Barr",
+    name: "Maxime Julia.",
     class: "y-196",
     yearStart: "2018",
-    yearGgraduated: "2023",
-    country: "Angola",
-    email: "gildo@gmail.com",
-  },
-  {
-    name: "Filipe Barr",
-    class: "y-196",
-    yearStart: "2018",
-    yearGgraduated: "2023",
-    country: "Angola",
-    email: "gildo@gmail.com",
-  },
-  {
-    name: "Filipe Barr",
-    class: "y-196",
-    yearStart: "2018",
-    yearGgraduated: "2023",
+    yearGraduated: "2024",
     country: "Angola",
     email: "gildo@gmail.com",
   },
@@ -56,34 +58,7 @@ const studentList = [
     name: "Filipe Barr",
     class: "y-196",
     yearStart: "2018",
-    yearGgraduated: "2023",
-    country: "Angola",
-    email: "gildo@gmail.com",
-  },
-
-  {
-    name: "Filipe Barr",
-    class: "y-196",
-    yearStart: "2018",
-    yearGgraduated: "2023",
-    country: "Angola",
-    email: "gildo@gmail.com",
-  },
-
-  {
-    name: "Filipe Barr",
-    class: "y-196",
-    yearStart: "2018",
-    yearGgraduated: "2023",
-    country: "Angola",
-    email: "gildo@gmail.com",
-  },
-
-  {
-    name: "Filipe Barr",
-    class: "y-196",
-    yearStart: "2018",
-    yearGgraduated: "2023",
+    yearGraduated: "2023",
     country: "Angola",
     email: "gildo@gmail.com",
   },
@@ -145,8 +120,6 @@ export const Card = () => {
     (id) => {
       const editDataStudent = allstudent.filter((item) => item.id === id);
       setEditStudent(editDataStudent);
-      console.log("viagemmmm", editDataStudent);
-
       setIsOpen(true);
     },
     [EditStudent, allstudent]
@@ -187,7 +160,7 @@ export const Card = () => {
   useOnClickOutside(ref, () => setIsOpen(false));
   return (
     <>
-      {studentList.map((item) => {
+      {filteredStudenty.map((item) => {
         return (
           <table id="all-student" key={item.id}>
             <tr>
