@@ -40,7 +40,7 @@ export const Header = () => {
   useOnClickOutside(ref, () => setOpenModalCreate(false));
   return (
     <header id="header">
-      <span>Finalist students УИТС</span>
+      <span>Finalist students ВГУИТ</span>
       <div id="containerInput">
         <input
           placeholder="search all students"

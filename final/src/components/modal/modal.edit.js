@@ -95,12 +95,12 @@ const FormToEdit = ({ EditStudent, isId }) => {
       .then((response) => {
         response.json();
       })
-      .then((data) => console.log("is IDDD", data.sheet1));
+      .then((data) => console.log("is verification", data.sheet1));
     console.log("update", data);
   };
   return (
     <section className="container-form">
-      <span id="student-data">Student Personal data Vsuet</span>
+      <span id="student-data">Student Personal data ВГУИТ</span>
       {input.map((item, idx) => {
         return (
           <div key={item.id} className="wrappe-form">
