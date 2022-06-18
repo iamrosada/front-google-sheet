@@ -39,7 +39,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 
 
-### 🎲 Rodando o Front End (Aplicativo desktop)
+### 🎲 Rodando o Front End
 
 ```bash
 # Clone este repositório
@@ -53,7 +53,14 @@ $ cd final
 $ npm install ou simplesmente yarn
 
 ```
+### 🎲 API Do google Sheet.
+podes escolher um dos link acima para criar a tua conta, e usares a api gratis, mas com algumas limitações nas requisições.
 
+- cria uma conta
+-  cria uma folha online do google sheet.
+-  copia o link da folha online do google sheet, e adiciona ela dentro da tua conta do - [dashboard sheety](https://dashboard.sheety.co/login)
+
+obs: Eu não criei um arquivo .env, então ou podes criar o arquivo .env ou vais adicionar em cada parte do arquivo a url da API.
 ### Autor
 
 ---
