@@ -1,12 +1,21 @@
 
+<h1 align="center">Finalist</h1>
+
 #How does Finalist work ? !
 
 O projeto foi desenvolvido por mim, com o objectivo de estudo, vi que era possível guardar algumas infos na folha do Excel e fui pesquisando a possibilidade de integrar com uma api, dai nasce esse pequeno projeto.  
 
 Num cenário real, o projeto pode ser usado para guardar info de estudantes de uma instituição.
 
+### Modal para criar ou adicionar os dados do estudante.
+![one](https://user-images.githubusercontent.com/59142372/174437678-0934b223-4230-43f7-ae51-a54cb58cc7a6.png)
 
-<h1 align="center">Finalist</h1>
+### Novo dado adicionado, já se encontra no google sheet
+![sec](https://user-images.githubusercontent.com/59142372/174437690-89cbd370-2e1b-4d92-a120-14afec3c4bf8.png)
+
+### Listado todos os Estudantes criado no sistema
+![all](https://user-images.githubusercontent.com/59142372/174437755-11dc2c30-af53-4496-9129-355de3bd9677.png)
+
 
 ### 🛠 Tecnologias
 
