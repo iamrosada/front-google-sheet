@@ -104,8 +104,6 @@ export const Card = () => {
       `https://api.sheety.co/5d0329c7e797512f74ba599faf046c14/finalistStudent/sheet1/${id}`,
       {
         method: "DELETE",
-        // headers: { "Content-Type": "application/json; charset=utf-8" },
-        // body: JSON.stringify(deleteStudent),
       }
     )
       .then((response) => {
@@ -175,7 +173,6 @@ export const Card = () => {
               <th
                 className="edit"
                 onClick={() => {
-                  console.log("id cliclado", item.id);
                   handleModalEdit(item.id);
                   setGetId(item.id);
                 }}
