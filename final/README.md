@@ -16,6 +16,9 @@ Num cenário real, o projeto pode ser usado para guardar info de estudantes de u
 ### Listado todos os Estudantes criado no sistema
 ![all](https://user-images.githubusercontent.com/59142372/174437755-11dc2c30-af53-4496-9129-355de3bd9677.png)
 
+### Procurando o Estudante Pelo seu País
+![find-from-country](https://user-images.githubusercontent.com/59142372/174438038-e688bb93-8563-44dd-91c9-5a31ba89b0b3.png)
+
 
 ### 🛠 Tecnologias
 
